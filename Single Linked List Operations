@@ -91,11 +91,52 @@ void deleteBegin()
         temp=NULL;
     }
 }
+void insertAtPosition()
+{
+    int pos,count=0,value;
+    struct node *temp=head;
+    
+    
+    printf("Enter position to insert node:\n");
+    scanf("%d",&pos);
+    while(temp!=NULL) {temp=temp->next; count++;}
+    if(pos==1) insertBegin();
+    else if(pos==count+1) insertEnd();
+    else if(pos <= 0 || pos > count+1) printf("Insertion not possible");
+    else
+    {
+        struct node *newNode = (struct node *) malloc(sizeof(struct node));
+    printf("Enter elem value: ");scanf("%d",&value);
+    newNode->data=value;
+        temp=head;
+        for(int i=1;i<pos-1;i++) temp=temp->next;
+        newNode->next=temp->next; 
+        temp->next=newNode;
+    }
+}
+void deleteAtPosition()
+{
+    int pos,count=0;
+    struct node *temp=head;
+    printf("Enter position to delete node:\n");
+    scanf("%d",&pos);
+    while(temp!=NULL) {temp=temp->next; count++;}
+    if(pos==1) deleteBegin();
+    else if(pos==count) deleteEnd();
+    else if(pos <= 0 || pos > count) printf("Deletion not possible");
+    else
+    {
+        for(int i=1;i<pos-1;i++) temp=temp->next;
+        struct node *del=temp->next;
+        temp->next=del->next;
+        free(del);
+    }
+}
 int main() {
     int choice;
     while(1)
     {
-        printf("\n 1.Exit\n2.Display\n3.InsertEnd\n4.InserBegin\n5.DeleteEnd\n6.DeleteBegin");
+        printf("\n 1.Exit\n2.Display\n3.InsertEnd\n4.InserBegin\n5.DeleteEnd\n6.DeleteBegin\n7.InsertAtPosition\n8.DeleteAtPosition");
     
     printf("\nEnter Choice\n");scanf("%d",&choice);
     switch(choice)
@@ -106,8 +147,8 @@ int main() {
         case 4:insertBegin();break;
         case 5: deleteEnd();break;
         case 6: deleteBegin();break;
-        // case 7:insertAtPosition();break;
-        // case 7:deleteAtPosition();break;
+        case 7:insertAtPosition();break;
+        case 8:deleteAtPosition();break;
         // case 8:deleteWithValue();break;
     }
     }
