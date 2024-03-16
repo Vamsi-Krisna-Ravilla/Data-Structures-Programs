@@ -130,6 +130,7 @@ void deleteAtPosition()
         struct node *del=temp->next;
         temp->next=del->next;
         free(del);
+        //temp->next=temp->next->next;
     }
 }
 int main() {
