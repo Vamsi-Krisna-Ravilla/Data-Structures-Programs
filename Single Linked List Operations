@@ -138,19 +138,18 @@ int main() {
     {
         printf("\n 1.Exit\n2.Display\n3.InsertEnd\n4.InserBegin\n5.DeleteEnd\n6.DeleteBegin\n7.InsertAtPosition\n8.DeleteAtPosition");
     
-    printf("\nEnter Choice\n");scanf("%d",&choice);
-    switch(choice)
-    {
-        case 1:exit(0);
-        case 2: display();break;
-        case 3: insertEnd();break;
-        case 4:insertBegin();break;
-        case 5: deleteEnd();break;
-        case 6: deleteBegin();break;
-        case 7:insertAtPosition();break;
-        case 8:deleteAtPosition();break;
-        // case 8:deleteWithValue();break;
-    }
+        printf("\nEnter Choice\n");scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:exit(0);
+            case 2: display();break;
+            case 3: insertEnd();break;
+            case 4:insertBegin();break;
+            case 5: deleteEnd();break;
+            case 6: deleteBegin();break;
+            case 7:insertAtPosition();break;
+            case 8:deleteAtPosition();break;
+        }
     }
     return 0;
 }
