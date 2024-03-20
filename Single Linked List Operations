@@ -107,6 +107,7 @@ void insertAtPosition()
         for(i=1;i<pos-1;i++) {temp=temp->next;}
         newNode->next=temp->next; 
         temp->next=newNode;
+        printf("Inserted element %d at position %d of LL",value,pos);
     }
 }
 void deleteAtPosition()
@@ -121,8 +122,8 @@ void deleteAtPosition()
         for(i=1;i<pos-1;i++) temp=temp->next;
         struct node *del=temp->next;
         temp->next=del->next;
+        printf("Element : %d got deleted at position %d",del->data,pos);
         free(del);
-        del=NULL;
     }
 }
 void main() {
