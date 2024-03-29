@@ -156,21 +156,19 @@ void reverseDLL()
     struct node *temp = NULL, *current = head;
     while (current != NULL) 
     {
-        // Swap prev and next pointers
+
         temp = current->prev;
         current->prev = current->next;
         current->next = temp;
-        
-        // Move forward
+
         current = current->prev;
     }
     
-    // Update head and tail pointers after reversal
     if (temp != NULL) {
-        tail = head; // Tail becomes the previous head, which is now the last node
-        head = temp->prev; // Head becomes the previous node of the current (last) node
+        tail = head; 
+        head = temp->prev; 
     }
-    printf("Successfuly all nodes got reversed in DLL");
+    printf("Successfully reversed all nodes in DLL by Iterative method\n");
 }
 void main() {
     int choice;
