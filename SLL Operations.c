@@ -137,7 +137,7 @@ void deleteAtPosition()
 	    }
     }
 }
-void reverseSLL()
+void reverseSLL_Iterative()
 {
  	struct node *prev = NULL, *current = head, *temp ;
     while (current != NULL) {
@@ -147,13 +147,31 @@ void reverseSLL()
         current = temp;
     }
     head=prev;
-    printf("Successfuly all nodes got reversed in SLL");
+    printf("Successfuly all nodes got reversed in SLL by Iteartive method");
 }
-void main() {
+void reverseSLL_Recursive(struct node *current) {
+    if (current == NULL) {
+        printf("Successfully reversed all nodes in SLL by Recursive method\n");
+        return;
+    }
+
+    if (current->next == NULL) {
+        head = current;
+        printf("Successfully reversed all nodes in SLL by Recursive method\n");
+        return;
+    }
+
+    reverseSLL_Recursive(current->next);
+    current->next->next = current;
+    current->next = NULL;
+}
+
+void main() 
+{
     int choice;
     while(1)
     {
-        printf("\n 1.Exit\n2.Display\n3.InsertEnd\n4.InserBegin\n5.DeleteEnd\n6.DeleteBegin\n7.InsertAtPosition\n8.DeleteAtPosition\n9.reverseSLL\n");
+        printf("\n 1.Exit\n2.Display\n3.InsertEnd\n4.InserBegin\n5.DeleteEnd\n6.DeleteBegin\n7.InsertAtPosition\n8.DeleteAtPosition\n9.reverseSLL_Ierative\n10.reverseSLL_Recursive\n");
     
         printf("\nEnter Choice\n");scanf("%d",&choice);
         switch(choice)
@@ -166,7 +184,8 @@ void main() {
             case 6: deleteBegin();break;
             case 7:insertAtPosition();break;
             case 8:deleteAtPosition();break;
-            case 9:reverseSLL();break;
+            case 9:reverseSLL_Iterative();break;
+            case 10:reverseSLL_Recursive(head);break;
         }
     }
 }
