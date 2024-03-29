@@ -165,13 +165,33 @@ void reverseSLL_Recursive(struct node *current) {
     current->next->next = current;
     current->next = NULL;
 }
-
+void removeDuplicates() 
+{
+    struct node *current, *index, *temp;
+    current = head;
+    while (current != NULL) 
+	{
+        temp = current;
+        while (temp->next != NULL) {
+            if (current->data == temp->next->data) {
+                index = temp->next;
+                temp->next = temp->next->next;
+                free(index);
+            } else {
+                temp = temp->next;
+            }
+        }
+        current = current->next;
+        printf("\nSuccessfully removed duplicates\n");
+    }
+}
 void main() 
 {
     int choice;
     while(1)
     {
-        printf("\n 1.Exit\n2.Display\n3.InsertEnd\n4.InserBegin\n5.DeleteEnd\n6.DeleteBegin\n7.InsertAtPosition\n8.DeleteAtPosition\n9.reverseSLL_Ierative\n10.reverseSLL_Recursive\n");
+        printf("\n 1.Exit\n2.Display\n3.InsertEnd\n4.InserBegin\n5.DeleteEnd\n6.DeleteBegin\n7.InsertAtPosition");
+        printf("\n8.DeleteAtPosition\n9.reverseSLL_Ierative\n10.reverseSLL_Recursive\n11.removeDuplicates\n");
     
         printf("\nEnter Choice\n");scanf("%d",&choice);
         switch(choice)
@@ -186,6 +206,7 @@ void main()
             case 8:deleteAtPosition();break;
             case 9:reverseSLL_Iterative();break;
             case 10:reverseSLL_Recursive(head);break;
+            case 11:removeDuplicates();break;
         }
     }
 }
