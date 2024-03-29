@@ -126,11 +126,22 @@ void deleteAtPosition()
         free(del);
     }
 }
+void reverseSLL()
+{
+ 	struct node *prev = NULL, *current = head, *temp ;
+    while (current != NULL) {
+        temp = current->next;
+        current->next = prev;
+        prev = current;
+        current = temp;
+    }
+    head=prev;
+}
 void main() {
     int choice;
     while(1)
     {
-        printf("\n 1.Exit\n2.Display\n3.InsertEnd\n4.InserBegin\n5.DeleteEnd\n6.DeleteBegin\n7.InsertAtPosition\n8.DeleteAtPosition");
+        printf("\n 1.Exit\n2.Display\n3.InsertEnd\n4.InserBegin\n5.DeleteEnd\n6.DeleteBegin\n7.InsertAtPosition\n8.DeleteAtPosition\n9.reverseSLL\n");
     
         printf("\nEnter Choice\n");scanf("%d",&choice);
         switch(choice)
@@ -143,6 +154,7 @@ void main() {
             case 6: deleteBegin();break;
             case 7:insertAtPosition();break;
             case 8:deleteAtPosition();break;
+            case 9:reverseSLL();break;
         }
     }
 }
