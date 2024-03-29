@@ -151,14 +151,31 @@ void deleteAtPosition()
 	    }
     }
 }
+void reverseCLL() 
+{
+    if (head == NULL) {
+        printf("Empty list!\n");
+    }
 
+    struct cnode *prev = NULL, *current = head, *nextNode;
+    do {
+        nextNode = current->next;
+        current->next = prev;
+        prev = current;
+        current = nextNode;
+    } while (current != head);
+
+    head->next = prev;
+    head = prev;
+    printf("Successfully reversed all nodes in CLL by Iterative method\n");
+}
 void main() 
 {
     int choice;
     while(1)
     {
-        printf("\n 1.Exit\n2.Display\n3.InsertEnd\n4.InserBegin\n5.DeleteEnd\n6.DeleteBegin\n7.InsertAtPosition\n8.DeleteAtPosition\n");
-    
+        printf("\n 1.Exit\n2.Display\n3.InsertEnd\n4.InserBegin\n5.DeleteEnd\n6.DeleteBegin");
+        printf("\n7.InsertAtPosition\n8.DeleteAtPosition\n9.reverseCLL");
         printf("\nEnter Choice\n");scanf("%d",&choice);
         switch(choice)
         {
@@ -170,8 +187,10 @@ void main()
             case 6: deleteBegin();break;
             case 7:insertAtPosition();break;
             case 8:deleteAtPosition();break;
+            case 9:reverseCLL();break;
             
         }
     }
 }
+
 
