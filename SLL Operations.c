@@ -99,15 +99,21 @@ void insertAtPosition()
     scanf("%d",&pos);
     
     if(pos <= 0 ) printf("Enter correct position for Insertion");
+    else if(pos==1) insertBegin();
     else
     {
-        struct node *newNode = (struct node *) malloc(sizeof(struct node));
-    	printf("Enter elem value: ");scanf("%d",&value);
-    	newNode->data=value;
-        for(i=1;i<pos-1;i++) {temp=temp->next;}
-        newNode->next=temp->next; 
-        temp->next=newNode;
-        printf("Inserted element %d at position %d of LL",value,pos);
+    	for(i=1;i<pos-1;i++) {temp=temp->next;}
+    	if(temp->next==NULL) insertEnd();
+    	else
+    	{
+	        struct node *newNode = (struct node *) malloc(sizeof(struct node));
+	    	printf("Enter elem value: ");scanf("%d",&value);
+	    	newNode->data=value;
+	        
+	        newNode->next=temp->next; 
+	        temp->next=newNode;
+	        printf("Inserted element %d at position %d of LL",value,pos);
+	    }
     }
 }
 void deleteAtPosition()
@@ -117,13 +123,18 @@ void deleteAtPosition()
     printf("Enter position to delete node:\n");
     scanf("%d",&pos);
     if(pos <= 0 ) printf("Deletion not possible");
+    else if(pos==1) deleteBegin();
     else
     {
         for(i=1;i<pos-1;i++) temp=temp->next;
-        struct node *del=temp->next;
-        temp->next=del->next;
-        printf("Element : %d got deleted at position %d",del->data,pos);
-        free(del);
+        if(temp->next==NULL) deleteEnd();
+        else
+        {
+	        struct node *del=temp->next;
+	        temp->next=del->next;
+	        printf("Element : %d got deleted at position %d",del->data,pos);
+	        free(del);
+	    }
     }
 }
 void reverseSLL()
@@ -136,6 +147,7 @@ void reverseSLL()
         current = temp;
     }
     head=prev;
+    printf("Successfuly all nodes got reversed in SLL");
 }
 void main() {
     int choice;
