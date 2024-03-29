@@ -137,7 +137,7 @@ void deleteAtPosition()
 	    }
     }
 }
-/*void reverseDisplay()
+void reverseDisplay_DLL()
 {
 	if(head==NULL) printf("No nodes to reverse a Linkedlist\n");
 	else
@@ -150,7 +150,7 @@ void deleteAtPosition()
 		}
 		printf("%d\t",head->data);
 	}
-}*/
+}
 void reverseDLL() 
 {
     struct node *temp = NULL, *current = head;
@@ -176,7 +176,8 @@ void main() {
     int choice;
     while(1)
     {
-        printf("\n 1.Exit\n2.Display\n3.InsertEnd\n4.InserBegin\n5.DeleteEnd\n6.DeleteBegin\n7.InsertAtPosition\n8.DeleteAtPosition\n9.ReverseDLL\n");
+        printf("\n 1.Exit\n2.Display\n3.InsertEnd\n4.InserBegin\n5.DeleteEnd\n6.DeleteBegin\n7.InsertAtPosition");
+        printf("\n8.DeleteAtPosition\n9.reverseDisplay_DLL\n10.ReverseDLL\n");
     
         printf("\nEnter Choice\n");scanf("%d",&choice);
         switch(choice)
@@ -189,7 +190,8 @@ void main() {
             case 6: deleteBegin();break;
             case 7: insertAtPosition();break;
             case 8: deleteAtPosition();break;
-            case 9: reverseDLL();break;
+            case 9: reverseDisplay_DLL();break;
+            case 10: reverseDLL();break;
         }
     }
 }
