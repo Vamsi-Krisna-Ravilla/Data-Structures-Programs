@@ -137,7 +137,7 @@ void deleteAtPosition()
 	    }
     }
 }
-void reverseDisplay()
+/*void reverseDisplay()
 {
 	if(head==NULL) printf("No nodes to reverse a Linkedlist\n");
 	else
@@ -150,7 +150,7 @@ void reverseDisplay()
 		}
 		printf("%d\t",head->data);
 	}
-}
+}*/
 void reverseDLL() 
 {
     struct node *temp = NULL, *current = head;
@@ -170,6 +170,7 @@ void reverseDLL()
         tail = head; // Tail becomes the previous head, which is now the last node
         head = temp->prev; // Head becomes the previous node of the current (last) node
     }
+    printf("Successfuly all nodes got reversed in DLL");
 }
 void main() {
     int choice;
