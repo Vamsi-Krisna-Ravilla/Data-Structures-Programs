@@ -8,6 +8,24 @@ struct Node {
 };
 struct Node* top = NULL;
 
+void display() 
+{
+
+    if (top == NULL) 
+	{
+        printf("Stack is empty.\n");
+        return;
+    }
+
+    struct Node* temp = top;
+    printf("Elements in stack are: ");
+    while (temp != NULL) 
+	{
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
+}
 void push() 
 {
 	int value;
@@ -36,23 +54,15 @@ void pop() {
     printf("Element %d popped from stack.\n", top->data);
 }
 
-void display() 
-{
 
+void peek()
+{
     if (top == NULL) 
 	{
-        printf("Stack is empty.\n");
+        printf("Underflow condition, Stack is empty.\n");
         return;
     }
-
-    struct Node* temp = top;
-    printf("Elements in stack are: ");
-    while (temp != NULL) 
-	{
-        printf("%d ", temp->data);
-        temp = temp->next;
-    }
-    printf("\n");
+    printf("Top element of the stack is: %d\n", top->data);
 }
 
 void main() 
@@ -60,7 +70,7 @@ void main()
     int choice;
     while (1) 
 	{
-        printf("\n1. Exit\n2. Display\n3. Push\n4. Pop\nEnter choice: ");
+        printf("\n1. Exit\n2. Display\n3. Push\n4. Pop\n5.Peek \nEnter choice: ");
         scanf("%d", &choice);
         switch (choice) 
 		{
@@ -68,6 +78,7 @@ void main()
             case 2:display();break;
             case 3:push();break;
             case 4:pop();break;
+            case 5:peek();break;
             default:printf("Invalid choice.\n");
                 
         }
