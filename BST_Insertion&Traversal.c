@@ -17,7 +17,7 @@ struct node* insertNode(struct node *root,int value)
         newNode->left = NULL;
         newNode->right = NULL;
         printf("Inserted element into BST is: %d\n", newNode->data);
-        return newNode;
+        return newNode;  // Return root node after insertion
     }
 
     if (root->data < value)
@@ -26,8 +26,6 @@ struct node* insertNode(struct node *root,int value)
         root->left = insertNode(root->left,value);
     else
         printf("Duplicate value ignored.\n");
-
-    return root; // Return root node after insertion
 }
 
 void inorder(struct node *root)   //Traverse Left-Root-Right
